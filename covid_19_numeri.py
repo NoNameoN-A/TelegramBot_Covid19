@@ -8,7 +8,7 @@ bot = telebot.TeleBot(API_TOKEN)
 USERNAME_ADMIN = "???"
 
 CONFERMATI = '⚠️ Confermati: '
-RICOVERATI = '\n✅ Guariti: '
+GUARITI = '\n✅ Guariti: '
 CRITICI = '\n💢Critici: '
 MORTI = '\n🖤 Morti: '
 LAST_UPDATE = '\n📡 Ultimo Cambiamento: '
@@ -35,7 +35,7 @@ def update(message):
     if message.from_user.username == USERNAME_ADMIN:
         response_data = get_json()
         TEXT = CONFERMATI + str(format(response_data[0]['confirmed'], ","))
-        TEXT = TEXT + RICOVERATI + str(format(response_data[0]['recovered'], ","))
+        TEXT = TEXT + GUARITI + str(format(response_data[0]['recovered'], ","))
         TEXT = TEXT + CRITICI + str(format(response_data[0]['critical'], ","))
         TEXT = TEXT + MORTI + str(format(response_data[0]['deaths'], ","))
         TEXT = TEXT + '\n'
